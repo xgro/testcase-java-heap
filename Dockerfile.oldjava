@@ -1,0 +1,6 @@
+FROM openjdk:8u92-jdk-alpine
+COPY /src /src/
+RUN mkdir /app && ls /src && javac /src/main/java/com/heapsizing/PrintXmxXms.java -d /app
+ENV JAVA_OPTS=""
+CMD java -version && java $JAVA_OPTS -cp /app \
+    com.heapsizing.PrintXmxXms
